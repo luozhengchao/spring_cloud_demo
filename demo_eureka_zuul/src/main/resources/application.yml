@@ -15,7 +15,11 @@ logging:
     root: INFO
 
 zuul:
+  ignoredServices: '*'
   routes:
-    app-a:
+    app-provider-user:            #名称随意，唯一就好
       path: /user/**
       serviceId: consumer-hystrix
+    app-sidecar:                  #通过sidecar调用nodejs的服务
+      path: /sidecar/**
+      serviceId: sidecar
